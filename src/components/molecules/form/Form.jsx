@@ -43,7 +43,7 @@ export default function Form() {
         placeholder="passwrd1234...."
         />
 
-        <Button />
+        <Button value="Signup"/>
       </form>
   )
 }
