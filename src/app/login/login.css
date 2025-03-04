@@ -1,0 +1,38 @@
+.container{
+    display: flex;
+    }
+    .sec-one{
+        padding:1.8rem 2rem;
+        width: 100%;
+        height: 100vh;
+    }
+    .sec-two{
+        display: none;
+    }
+        
+    .header{
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin: 0;
+    }
+    .header h4{
+        padding: 0;
+        margin: 0;
+        font-size: 0.9em;
+    }
+    
+    @media (min-width: 901px) {
+        .sec-two{
+            display: inline;
+            width: 55%;
+            height: 100vh;
+            position: relative;
+            background-color: red;
+        }
+        .sec-one{
+            padding:1.8rem 2rem;
+            width: 45%;
+            height: 100vh;
+        }
+    }

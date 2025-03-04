@@ -9,20 +9,6 @@ export default function Form() {
   return (
       <form action="" className='form'>
         <Inputs 
-        label="First Name"
-        name="firstName"
-        type="text"
-        placeholder="First Name"
-        />
-        
-        <Inputs 
-        label="Last Name"
-        name="lastName"
-        type="text"
-        placeholder="Last Name"
-        />
-
-        <Inputs 
         label="Email"
         name="email"
         type="email"
@@ -32,13 +18,6 @@ export default function Form() {
         <Inputs 
         label="Password"
         name="password"
-        type="password"
-        placeholder="passwrd1234...."
-        />
-
-        <Inputs 
-        label="Confirm Password"
-        name="confirmpassword"
         type="password"
         placeholder="passwrd1234...."
         />
