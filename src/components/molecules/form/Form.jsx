@@ -3,11 +3,13 @@ import data from './signupFormData'
 import Inputs from "@/components/atom/inputs/Inputs.jsx"
 import Button from "@/components/atom/signupButton/Button.jsx"
 import "./form.css"
+import { handleSignup } from "@/app/actions";
+
 
 export default function Form() {
   
   return (
-      <form action="" className='form'>
+      <form action={handleSignup}  className='form'>
         <Inputs 
         label="First Name"
         name="firstName"
