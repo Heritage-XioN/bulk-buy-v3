@@ -4,7 +4,7 @@ import "./inputs.css";
 
 export default function Inputs(props) {
     const [input,setInput] = useState("");
-    const {name,type,placeholder,label} = props;
+    const {name,type,placeholder,label,pattern} = props;
     
   return (
     <>
@@ -16,6 +16,8 @@ export default function Inputs(props) {
         placeholder={placeholder}
         className="inputs"
         value={input}
+        pattern={pattern}
+        required
         onChange={e => setInput(e.target.value)}
         />   
      </label>    

@@ -1,13 +1,22 @@
+"use client"
 import React from 'react'
 import data from './signupFormData'
 import Inputs from "@/components/atom/inputs/Inputs.jsx"
 import Button from "@/components/atom/submitButton/Button.jsx"
-import "./form.css"
 import { handleSignup } from "@/app/actions";
+import { useActionState } from "react";
+import "./form.css"
 
+
+const initialState = {
+  message: '',
+}
 
 export default function Form() {
   
+  const [state,formAction,pending] = useActionState(handleSignup, initialState)
+  console.log(state,pending,handleSignup)
+
   return (
       <form action={handleSignup}  className='form'>
         <Inputs 
@@ -44,8 +53,8 @@ export default function Form() {
         type="password"
         placeholder="passwrd1234...."
         />
-
-        <Button value="Signup"/>
+        <p aria-live='polite'>{state?.message}</p>
+        <Button value="Signup" diabled={pending}/>
       </form>
   )
 }
