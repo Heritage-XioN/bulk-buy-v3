@@ -3,3 +3,8 @@
     padding: 0.5rem 0rem;
     width: 100%;
 }
+.forgot-password{
+    color: blue;
+    font-weight: bold;
+    text-align: end;
+}

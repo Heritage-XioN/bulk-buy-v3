@@ -1,6 +1,7 @@
 import React from 'react'
 import Form from "@/components/molecules/loginForm/Form.jsx"
 import "./login.css"
+import Link from 'next/link'
 import Image from "next/image";
 
 
@@ -14,7 +15,13 @@ export default function Login() {
             <h1>Login</h1>
             <h4>Welcome back</h4>
             <Form  />
-            <p>Dunt have an acount?</p>
+
+            <p> 
+            Dunt have an acount? 
+            <Link href='/signup' className='link'>
+              Signup
+            </Link>
+            </p>
         </div>
     </div>
   )

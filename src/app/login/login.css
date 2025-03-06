@@ -13,6 +13,11 @@
     p,h1,h4{
         text-align: center;
     }
+    .link{
+        color: blue;
+        font-weight: bold;
+        margin-left: 0.2rem;
+    }
     
     @media (min-width: 901px) {
         .sec-two{
