@@ -10,16 +10,8 @@
         display: none;
     }
         
-    .header{
-        display: flex;
-        justify-content: center;
-        padding: 0;
-        margin: 0;
-    }
-    .header h4{
-        padding: 0;
-        margin: 0;
-        font-size: 0.9em;
+    p,h1,h4{
+        text-align: center;
     }
     
     @media (min-width: 901px) {

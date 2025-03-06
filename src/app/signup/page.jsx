@@ -11,13 +11,10 @@ export default function Signup() {
         <Image src="/images/bulk-buy-people.jpg" fill={true} style={{objectFit: "cover"}} alt="sideframe"/>
         </div>
         <div className="sec-one">
-            <div className="header">
-                <h1>Signup</h1>
-            </div>
-            <div className="header">
-                <h4>Welcome to thr smart shopping platform</h4>
-            </div>
+            <h1>Signup</h1>
+            <h4>Welcome to thr smart shopping platform</h4>
             <Form  />
+            <p>Already have an acount?</p>
         </div>
     </div>
   )
