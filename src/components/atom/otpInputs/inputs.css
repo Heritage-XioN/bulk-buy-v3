@@ -1,0 +1,18 @@
+.label{
+    font-weight: bold;
+    font-size: 0.9em;
+}
+.inputs{
+    width: 4rem;
+    margin-top: 0.2rem;
+    margin-bottom: 1rem;
+    padding: 0.8rem 0.5rem;
+    border: 2px solid #FFDD9E;
+    border-radius: 3px;
+    background-color: #FFDD9E;
+    text-align: center;
+}
+::placeholder{
+    color: #D9AC57;
+    font-weight: bold;
+}

@@ -1,5 +1,5 @@
 import React from 'react'
-import Form from "@/components/molecules/form/Form.jsx"
+import Form from "@/components/molecules/signupForm/Form.jsx"
 import "./signup.css"
 import Image from "next/image";
 

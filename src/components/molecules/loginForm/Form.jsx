@@ -1,7 +1,7 @@
 import React from 'react'
 import data from './signupFormData'
 import Inputs from "@/components/atom/inputs/Inputs.jsx"
-import Button from "@/components/atom/signupButton/Button.jsx"
+import Button from "@/components/atom/submitButton/Button.jsx"
 import "./form.css"
 
 export default function Form() {
@@ -21,7 +21,7 @@ export default function Form() {
         type="password"
         placeholder="passwrd1234...."
         />
-
+        
         <Button value="Login"/>
       </form>
   )

@@ -1,0 +1,16 @@
+.form{
+    margin-top: 1rem;
+    padding: 0.5rem 0rem;
+    width: 100%;
+}
+.input-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: rem;
+  }
+  .input-fields{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+  }

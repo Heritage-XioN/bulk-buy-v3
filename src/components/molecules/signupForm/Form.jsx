@@ -1,7 +1,7 @@
 import React from 'react'
 import data from './signupFormData'
 import Inputs from "@/components/atom/inputs/Inputs.jsx"
-import Button from "@/components/atom/signupButton/Button.jsx"
+import Button from "@/components/atom/submitButton/Button.jsx"
 import "./form.css"
 import { handleSignup } from "@/app/actions";
 
