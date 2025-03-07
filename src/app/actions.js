@@ -50,6 +50,9 @@ async function handleSignup(formData, callback) {
     } 
 }
 
+async function handleOtpSubmit(formData) {
+    console.log(formData)
+}
 
 
-export {handleSignup};
+export {handleSignup,handleOtpSubmit};

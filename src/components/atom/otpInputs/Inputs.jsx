@@ -19,8 +19,8 @@ const OTPInputGroup = () => {
         }));
     };
     //this function processes form submission
-    const handleSubmit = () => {
-        // ... Your submit logic here
+    const handleSubmit = (formData) => {
+        console.log(formData)
     };
     //return child component
         return (
