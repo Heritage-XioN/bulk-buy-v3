@@ -29,7 +29,7 @@ const schema = Joi.object({
    
 })
 
-async function handleSignup(formData) {
+async function handleSignup(formData, callback) {
     
     const userData = {
         firstName: formData.get('firstName'),
@@ -44,15 +44,10 @@ async function handleSignup(formData) {
 
     if (validatedFields.error) {
       const errorMessage = validatedFields.error.details[0].message;
-      console.log(errorMessage)
-       return{
-        errors: errorMessage
-       }
+      callback(errorMessage)
     }else{
       console.log("form data is valid")
-    }
-
-    
+    } 
 }
 
 

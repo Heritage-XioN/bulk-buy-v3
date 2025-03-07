@@ -1,24 +1,28 @@
-"use client"
+'use client'
 import React from 'react'
+import { ToastContainer, toast } from "react-toastify";
 import data from './signupFormData'
 import Inputs from "@/components/atom/inputs/Inputs.jsx"
 import Button from "@/components/atom/submitButton/Button.jsx"
 import { handleSignup } from "@/app/actions";
-import { useActionState } from "react";
 import "./form.css"
 
 
-const initialState = {
-  message: '',
-}
 
 export default function Form() {
   
-  const [state,formAction,pending] = useActionState(handleSignup, initialState)
-  console.log(state,pending,handleSignup)
+  const handleFormSubmit = async (errorMessage) => {
+    toast.error(errorMessage)
+  }
 
+  const OnSubmit =  () => {
+    e.preventDefault()
+    const formData = new FormData(e.target)
+    handleSignup(formData, handleFormSubmit)
+  }
   return (
-      <form action={handleSignup}  className='form'>
+      <form onSubmit={OnSubmit}  className='form'>
+        <ToastContainer />
         <Inputs 
         label="First Name"
         name="firstName"
@@ -53,8 +57,8 @@ export default function Form() {
         type="password"
         placeholder="passwrd1234...."
         />
-        <p aria-live='polite'>{state?.message}</p>
-        <Button value="Signup" diabled={pending}/>
+      
+        <Button value="Signup" />
       </form>
   )
 }
