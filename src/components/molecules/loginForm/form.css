@@ -8,3 +8,35 @@
     font-weight: bold;
     text-align: end;
 }
+.label{
+    font-weight: bold;
+    font-size: 0.9em;
+    padding-top: 10rem;
+}
+.inputs{
+    margin-top: 0.2rem;
+    padding: 0.8rem 0.5rem;
+    border: 2px solid #FFDD9E;
+    width: 100%;
+    border-radius: 3px;
+    background-color: #FFDD9E;
+}
+.inputs:focus {
+    border: 2px solid #FFDD9E !important;
+   }
+.inputs:active {
+    border: 2px solid #FFDD9E !important;
+}
+::placeholder{
+    color: #D9AC57;
+    font-weight: bold;
+}
+.errorMsg{
+    color: red;
+    font-weight: bold;
+    font-size: 0.9em;
+    text-align: start;
+}
+.input-cont{
+    margin-bottom: 0.6rem;
+}

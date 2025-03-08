@@ -20,7 +20,6 @@ const OTPInputGroup = () => {
     };
     //this function processes form submission
     const handleSubmit = (formData) => {
-        console.log(formData)
     };
     //return child component
         return (
