@@ -18,9 +18,7 @@ const OTPInputGroup = () => {
             [inputId]: value,
         }));
     };
-    //this function processes form submission
-    const handleSubmit = (formData) => {
-    };
+    
     //return child component
         return (
         <>
@@ -30,7 +28,6 @@ const OTPInputGroup = () => {
                     value={inputValues.input1}
                     onValueChange={handleInputChange}
                     previousId={null}
-                    handleSubmit={handleSubmit}
                     nextId="input2"
                 />
                 <OTPInput
@@ -38,7 +35,6 @@ const OTPInputGroup = () => {
                     value={inputValues.input2}
                     onValueChange={handleInputChange}
                     previousId="input1"
-                    handleSubmit={handleSubmit}
                     nextId="input3"
                 />
                 <OTPInput
@@ -46,7 +42,6 @@ const OTPInputGroup = () => {
                     value={inputValues.input3}
                     onValueChange={handleInputChange}
                     previousId="input2"
-                    handleSubmit={handleSubmit}
                     nextId="input4"
                 />
                 <OTPInput
@@ -54,8 +49,6 @@ const OTPInputGroup = () => {
                     value={inputValues.input4}
                     onValueChange={handleInputChange}
                     previousId="input3"
-                    handleSubmit={handleSubmit}
-                    
                 />
             </div>
         </>
@@ -63,7 +56,7 @@ const OTPInputGroup = () => {
 }
 
 //Our child component
-const OTPInput = ({ id, previousId, nextId, value, onValueChange, handleSubmit }) => {
+const OTPInput = ({ id, previousId, nextId, value, onValueChange}) => {
     //This callback function only runs when a key is released
     const handleKeyUp = (e) => {
         //check if key is backspace or arrowleft
@@ -90,7 +83,7 @@ const OTPInput = ({ id, previousId, nextId, value, onValueChange, handleSubmit }
                 const inputGroup = document.getElementById('OTPInputGroup');
                 if (inputGroup && inputGroup.dataset['autosubmit']) {
                     //submit the form
-                    handleSubmit();
+                    
                 }
             }
         }
