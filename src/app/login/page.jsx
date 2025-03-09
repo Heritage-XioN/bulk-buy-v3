@@ -13,7 +13,7 @@ export default function Login() {
         </div>
         <div className="sec-one">
             <h1>Login</h1>
-            <h4>Welcome back</h4>
+            <h4>Welcome back to the smart shopping platform</h4>
             <Form  />
 
             <p> 
