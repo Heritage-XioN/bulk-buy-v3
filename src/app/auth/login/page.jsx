@@ -18,7 +18,7 @@ export default function Login() {
 
             <p> 
             Dunt have an acount? 
-            <Link href='/signup' className='link'>
+            <Link href='/auth/signup' className='link'>
               Signup
             </Link>
             </p>

@@ -5,7 +5,7 @@ import "./otp.css"
 import Image from "next/image";
 
 
-export default function Signup() {
+export default function Otp() {
   return (
     <div className="container">
         <div className="sec-two">

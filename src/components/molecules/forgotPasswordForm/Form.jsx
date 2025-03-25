@@ -1,7 +1,6 @@
 "use client"
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import Link from 'next/link'
 import Button from "@/components/atom/submitButton/Button.jsx"
 import { handlelogin } from "@/app/actions";
 import "./form.css"
@@ -29,30 +28,7 @@ export default function Form() {
             { errors.email && <p className='errorMsg'>{errors.email?.message}</p>}
           </div>
 
-          <label className='label'>Password</label>
-        <div className="input-cont">
-          <input
-            type="password"
-            className="inputs"
-            placeholder='passwrd123....'
-            {...register('password', {
-              required: 'Password is required',
-              minLength: {
-                value: 8,
-                message: 'password must be at least 8 characters',
-              },
-            })}
-            aria-invalid={errors.password ? "true" : "false"}
-            />
-          { errors.password && <p className='errorMsg'>{errors.password?.message}</p>}
-        </div>
-          
-        <p className="forgot-password">
-        <Link href='/auth/forgot-password' >
-          forgot password
-        </Link>
-        </p>
-        <Button value="Login"/>
+        <Button value="Submit"/>
       </form>
   )
 }

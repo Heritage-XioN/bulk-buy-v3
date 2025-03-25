@@ -18,42 +18,24 @@ export default function Form() {
   
   return (
       <form onSubmit={handleSubmit(handleSignup)}  className='form'>
-        <label className='label'>First Name</label>
+        <label className='label'>Name</label>
         <div className="input-cont">
           <input
             type="text"
             className="inputs"
             placeholder='John'
-            {...register('firstName', {
+            {...register('name', {
               required: 'First name is required',
               minLength: {
                 value: 2,
                 message: 'First name must be at least 2 characters',
               },
             })}
-            aria-invalid={errors.firstName ? "true" : "false"}
+            aria-invalid={errors.name ? "true" : "false"}
             />
-          { errors.firstName && <p className='errorMsg'>{errors.firstName?.message}</p>}
+          { errors.name && <p className='errorMsg'>{errors.name?.message}</p>}
         </div>
 
-        <label className='label'>Last Name</label>
-        <div className="input-cont">
-          <input
-            type="text"
-            className="inputs"
-            placeholder='doe'
-            {...register('lastName', {
-              required: 'Last name is required',
-              minLength: {
-                value: 2,
-                message: 'Last Name must be at least 2 characters',
-              },
-            })}
-            aria-invalid={errors.lastName ? "true" : "false"}
-            />
-          { errors.lastName && <p className='errorMsg'>{errors.lastName?.message}</p>}
-        </div>
-        
         <label className='label'>Email</label>
         <div className="input-cont">
           <input
@@ -96,7 +78,7 @@ export default function Form() {
             type="password"
             className="inputs"
             placeholder='password123...'
-            {...register('confirmPassword', {
+            {...register('passwordConfirm', {
               required: 'confirm password is required',
               minLength: {
                 value: 8,
@@ -104,9 +86,9 @@ export default function Form() {
               },
               validate: validateConfirmPassword,
             })}
-            aria-invalid={errors.confirmPassword ? "true" : "false"}
+            aria-invalid={errors.passwordConfirm ? "true" : "false"}
             />
-          { errors.confirmPassword && <p className='errorMsg'>{errors.confirmPassword?.message}</p>}
+          { errors.passwordConfirm && <p className='errorMsg'>{errors.passwordConfirm?.message}</p>}
         </div>
         
         <Button value="Signup" />

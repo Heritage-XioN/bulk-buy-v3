@@ -1,23 +1,39 @@
 "use server"
 const axios = require('axios');
-
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 
 
 async function handleSignup(data) {
+    const cookieStore = await cookies()
+    console.log(data)
     const url = process.env.SIGNUP_ENDPOINT;
     const formData = JSON.stringify(data)
-    axios.post(url, formData, {
-        headers: {
-            'content-type': 'application/json'
+    try {
+        // Your API call here
+        const response = await fetch(url, {
+          method: 'POST',
+          body: formData,
+        });
+        const data = response.json()
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          return { error: errorData.message || 'Signup failed' };
         }
-    })
-    .then((res) => {
-        console.log(res)
-    })
-    .catch((error) => {
-        console.log(error)
-    })
+    
+        // Success logic (redirect, etc.)
+        cookieStore.set('name','heritage',{
+            secure: true,
+            httpOnly: true,
+            sameSite: 'strict'
+        })
+        // redirect('/auth/otp')
+    
+    } catch (error) {
+        console.error('Signup error:', error);
+    }
 }
 
 async function handlelogin(data) {
@@ -34,6 +50,29 @@ async function handlelogin(data) {
     .catch((error) => {
         console.log(error)
     })
+}
+
+export async function handleSubmit(formData) {
+  try {
+    // Your API call here
+   
+    const response = await fetch('/api/signup', {
+      method: 'POST',
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const errorData = await response.json();
+      return { error: errorData.message || 'Signup failed' };
+    }
+
+    // Success logic (redirect, etc.)
+    return { success: true };
+
+  } catch (error) {
+    console.error('Signup error:', error);
+    return { error: 'An unexpected error occurred.' };
+  }
 }
 
 async function handleOtpSubmit(formData) {

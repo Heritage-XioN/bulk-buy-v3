@@ -1,22 +1,23 @@
 import React from 'react'
+import Form from "@/components/molecules/forgotPasswordForm/Form.jsx"
+import "./forgot.css"
 import Link from 'next/link'
-import Form from "@/components/molecules/signupForm/Form.jsx"
-import "./signup.css"
 import Image from "next/image";
 
 
-export default function Signup() {
+export default function ForgotPassword() {
   return (
     <div className="container">
         <div className="sec-two">
         <Image src="/images/bulk-buy-people.jpg" fill={true} style={{objectFit: "cover"}} alt="sideframe"/>
         </div>
         <div className="sec-one">
-            <h1>Signup</h1>
-            <h4>Welcome to thr smart shopping platform</h4>
+            <h1>Forgot Password</h1>
+            <h4>A password reset link will be sent to your email address</h4>
             <Form  />
+
             <p> 
-            Already have an acount? 
+            Remembered your password? 
             <Link href='/auth/login' className='link'>
               Login
             </Link>
