@@ -10,30 +10,17 @@ async function handleSignup(data) {
     console.log(data)
     const url = process.env.SIGNUP_ENDPOINT;
     const formData = JSON.stringify(data)
-    try {
-        // Your API call here
-        const response = await fetch(url, {
-          method: 'POST',
-          body: formData,
-        });
-        const data = response.json()
-
-        if (!response.ok) {
-          const errorData = await response.json();
-          return { error: errorData.message || 'Signup failed' };
+    axios.post(url, formData, {
+        headers: {
+            'content-type': 'application/json'
         }
-    
-        // Success logic (redirect, etc.)
-        cookieStore.set('name','heritage',{
-            secure: true,
-            httpOnly: true,
-            sameSite: 'strict'
-        })
-        // redirect('/auth/otp')
-    
-    } catch (error) {
-        console.error('Signup error:', error);
-    }
+    })
+    .then((res) => {
+        console.log(res.data)
+    })
+    .catch((error) => {
+        console.log(error.response)
+    })
 }
 
 async function handlelogin(data) {
