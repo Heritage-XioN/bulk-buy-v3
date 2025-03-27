@@ -7,7 +7,6 @@ import { redirect } from "next/navigation";
 
 async function handleSignup(data) {
     const cookieStore = await cookies()
-    console.log(data)
     const url = process.env.SIGNUP_ENDPOINT;
     const formData = JSON.stringify(data)
     axios.post(url, formData, {
@@ -16,14 +15,29 @@ async function handleSignup(data) {
         }
     })
     .then((res) => {
-        console.log(res.data)
+        const response = res.data;
+        const authData = {
+            token: response.token,
+            name: response.data.user.name,
+            id: response.data.user._id
+        }
+        console.log(authData)
+        const cookieValue = JSON.stringify(authData)
+        console.log(cookieValue)
+        cookieStore.set('user', cookieValue, {
+            secure: process.env.COOKIE_SECURE,
+            httpOnly: process.env.COOKIE_HTTP_ONLY,
+            sameSite: process.env.COOKIE_SAME_SITE,
+            maxAge: process.env.COOKIE_MAX_AGE
+        })
     })
     .catch((error) => {
-        console.log(error.response)
+        console.log(error)
     })
 }
 
 async function handlelogin(data) {
+    const cookieStore = await cookies()
     const url = process.env.LOGIN_ENDPOINT;
     const formData = JSON.stringify(data)
     axios.post(url, formData, {
@@ -32,35 +46,26 @@ async function handlelogin(data) {
         }
     })
     .then((res) => {
-        console.log(res)
+        const response = res.data;
+        const authData = {
+            token: response.token,
+            name: response.data.user.name,
+            id: response.data.user._id
+        }
+        console.log(authData)
+        const cookieValue = JSON.stringify(authData)
+        cookieStore.set('user', cookieValue, {
+            secure: process.env.COOKIE_SECURE,
+            httpOnly: process.env.COOKIE_HTTP_ONLY,
+            sameSite: process.env.COOKIE_SAME_SITE,
+            maxAge: process.env.COOKIE_MAX_AGE
+        })
     })
     .catch((error) => {
         console.log(error)
     })
 }
 
-export async function handleSubmit(formData) {
-  try {
-    // Your API call here
-   
-    const response = await fetch('/api/signup', {
-      method: 'POST',
-      body: formData,
-    });
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      return { error: errorData.message || 'Signup failed' };
-    }
-
-    // Success logic (redirect, etc.)
-    return { success: true };
-
-  } catch (error) {
-    console.error('Signup error:', error);
-    return { error: 'An unexpected error occurred.' };
-  }
-}
 
 async function handleOtpSubmit(formData) {
     function concatOtpValues() {
