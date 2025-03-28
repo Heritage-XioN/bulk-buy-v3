@@ -1,0 +1,10 @@
+.search-bar {
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 50px;
+    padding: 1em 6em;
+    background-color: var(--clr-light);
+} .search-bar::placeholder {
+    color: white;
+}

@@ -1,0 +1,7 @@
+main {
+    margin-inline: var(--padding-max);
+    padding-top: calc(var(--padding-max) / 8);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+} 

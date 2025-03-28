@@ -1,0 +1,13 @@
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: calc(var(--padding-max) * .5);
+    padding-block: calc(var(--padding-max) / 9);
+    background-color: var(--clr-pri);
+    color: #ddd;
+} .nav-content {
+    list-style: none;
+    display: flex;
+    gap: 1em;
+}
