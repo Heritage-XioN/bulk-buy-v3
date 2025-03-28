@@ -1,0 +1,28 @@
+main {
+    margin-inline: var(--padding-max);
+    padding-top: calc(var(--padding-max) / 8);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-bottom: calc(var(--padding-max) / 2);
+} .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 1em;
+} .page-details {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}.page-no {
+    padding: 10px 15px;
+    background-color: lightgray;
+} .pages {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+} .next, .prev {
+    background-color: var(--clr-pri);
+    color: #000;
+}
