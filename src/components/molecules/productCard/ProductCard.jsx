@@ -2,19 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import './productCard.css'
 
-const ProductCard = ({name, price, src}) => {
- 
-  // if (!name) {
-  //   name = <span className='product-name'>Product</span>;
-  // }
-  // else {
-  //   name = <div>Name</div>
-  // }
+const ProductCard = ({name="Product Name", price, src}) => {
   
   return (
     <div className='product-card'>
         <div className='img-container'>
-           <Image src='/images/rice1.png' height={150} width={100} alt="sideframe" />
+           <Image src='/images/rice1.png' height={150} width={100} alt="rice" />
         </div>
         <div className='product-details'>
           {name}
