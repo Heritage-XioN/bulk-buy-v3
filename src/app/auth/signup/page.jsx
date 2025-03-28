@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
-import Form from "@/components/molecules/otpForm/Form.jsx"
-import "./otp.css"
+import Form from "@/components/molecules/signupForm/Form.jsx"
+import "./signup.css"
 import Image from "next/image";
 
 
@@ -12,15 +12,15 @@ export default function Signup() {
         <Image src="/images/bulk-buy-people.jpg" fill={true} style={{objectFit: "cover"}} alt="sideframe"/>
         </div>
         <div className="sec-one">
-          <h1>OTP</h1>
-          <h4>Please enter the otp we sent your registered email address</h4>
-          <Form />
-          <p
-          >Did not recieve an otp?
-          <Link href='/login' className='link'>
-            Resend
-          </Link>
-          </p>
+            <h1>Signup</h1>
+            <h4>Welcome to thr smart shopping platform</h4>
+            <Form  />
+            <p> 
+            Already have an acount? 
+            <Link href='/auth/login' className='link'>
+              Login
+            </Link>
+            </p>
         </div>
     </div>
   )

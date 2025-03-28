@@ -1,10 +1,12 @@
 "use server"
 const axios = require('axios');
-
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 
 
 async function handleSignup(data) {
+    const cookieStore = await cookies()
     const url = process.env.SIGNUP_ENDPOINT;
     const formData = JSON.stringify(data)
     axios.post(url, formData, {
@@ -13,7 +15,21 @@ async function handleSignup(data) {
         }
     })
     .then((res) => {
-        console.log(res)
+        const response = res.data;
+        const authData = {
+            token: response.token,
+            name: response.data.user.name,
+            id: response.data.user._id
+        }
+        console.log(authData)
+        const cookieValue = JSON.stringify(authData)
+        console.log(cookieValue)
+        cookieStore.set('user', cookieValue, {
+            secure: process.env.COOKIE_SECURE,
+            httpOnly: process.env.COOKIE_HTTP_ONLY,
+            sameSite: process.env.COOKIE_SAME_SITE,
+            maxAge: process.env.COOKIE_MAX_AGE
+        })
     })
     .catch((error) => {
         console.log(error)
@@ -21,6 +37,7 @@ async function handleSignup(data) {
 }
 
 async function handlelogin(data) {
+    const cookieStore = await cookies()
     const url = process.env.LOGIN_ENDPOINT;
     const formData = JSON.stringify(data)
     axios.post(url, formData, {
@@ -29,12 +46,26 @@ async function handlelogin(data) {
         }
     })
     .then((res) => {
-        console.log(res)
+        const response = res.data;
+        const authData = {
+            token: response.token,
+            name: response.data.user.name,
+            id: response.data.user._id
+        }
+        console.log(authData)
+        const cookieValue = JSON.stringify(authData)
+        cookieStore.set('user', cookieValue, {
+            secure: process.env.COOKIE_SECURE,
+            httpOnly: process.env.COOKIE_HTTP_ONLY,
+            sameSite: process.env.COOKIE_SAME_SITE,
+            maxAge: process.env.COOKIE_MAX_AGE
+        })
     })
     .catch((error) => {
         console.log(error)
     })
 }
+
 
 async function handleOtpSubmit(formData) {
     function concatOtpValues() {
