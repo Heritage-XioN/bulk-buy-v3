@@ -30,6 +30,9 @@ async function handleSignup(data) {
             sameSite: process.env.COOKIE_SAME_SITE,
             maxAge: process.env.COOKIE_MAX_AGE
         })
+
+        //use to navigate to the next page after succesful authentication and saving of cookie data
+        redirect('/')
     })
     .catch((error) => {
         console.log(error)
