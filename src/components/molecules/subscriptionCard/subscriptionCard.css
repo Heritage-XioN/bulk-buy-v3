@@ -1,0 +1,22 @@
+.subscription-card {
+    border-radius: var(--border-min);
+    padding: calc(var(--padding-min) * 1.5) calc(var(--padding-min) * 2);
+    color: #fff;
+    background-color: var(--clr-pri);
+} .card-details {
+    margin-bottom: 10px;
+} button {
+    text-transform: uppercase;
+    padding: calc(var(--padding-min)) calc(var(--padding-min) * 2);
+    border-radius: calc(var(--border-min) / 2);
+    outline: none;
+    border: none;
+    background-color: var(--clr-accent);
+    color: #fff;
+} button:hover {
+    cursor: pointer;
+    filter: brightness(110%);
+    transition: all linear .2s;
+} button:active {
+    scale: .9;
+}

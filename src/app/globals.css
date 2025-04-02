@@ -1,6 +1,12 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --clr-pri: #DCA422;
+  --clr-light: #FEDD9E;
+  --clr-accent: #610a0a;
+  --padding-max: 300px; 
+  --border-min: 10px;
+  --padding-min: 10px;
 }
 
 @media (prefers-color-scheme: dark) {
