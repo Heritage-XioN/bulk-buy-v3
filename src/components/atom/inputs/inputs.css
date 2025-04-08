@@ -1,15 +1,21 @@
 .label{
     font-weight: bold;
     font-size: 0.9em;
+    padding-top: 10rem;
 }
 .inputs{
     margin-top: 0.2rem;
-    margin-bottom: 1rem;
     padding: 0.8rem 0.5rem;
     border: 2px solid #FFDD9E;
     width: 100%;
     border-radius: 3px;
     background-color: #FFDD9E;
+}.
+.inputs:focus {
+    border: 2px solid #D9AC57 !important;
+   }
+.inputs:active {
+    border: 2px solid #D9AC57 !important;
 }
 ::placeholder{
     color: #D9AC57;

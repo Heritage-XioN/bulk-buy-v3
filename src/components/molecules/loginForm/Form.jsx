@@ -1,58 +1,39 @@
 "use client"
 import React from 'react'
-import { useForm } from 'react-hook-form';
 import Link from 'next/link'
+import Inputs from "@/components/atom/inputs/Inputs.jsx"
 import Button from "@/components/atom/submitButton/Button.jsx"
-import { handlelogin } from "@/app/actions";
+import { login } from '@/actioms/auth.js'
+import { useActionState } from 'react';
 import "./form.css"
 
 export default function Form() {
-  const { register, handleSubmit, formState: {errors} } = useForm();
+  const [state, formAction, isPending] = useActionState(login, undefined);
   
   return (
-      <form onSubmit={handleSubmit(handlelogin)} className='form'>
-        <label className='label'>Email</label>
-        <div className="input-cont">
-          <input
-            type="email"
-            className="inputs"
-            placeholder='example@gmail.com'
-              {...register('email', {
-                required: 'Email is required',
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Invalid email address',
-                },
-              })}
-              aria-invalid={errors.email ? "true" : "false"}
-              />
-            { errors.email && <p className='errorMsg'>{errors.email?.message}</p>}
-          </div>
+    <div className="container">
+      {state.success && <div className="success-msg-cont"><p className="auth-successMsg">Signup successful!</p></div>}
+      {state.authError && <div className="error-msg-cont"><p className="auth-errorMsg">{state.authError}</p></div>}
 
-          <label className='label'>Password</label>
+      <form action={formAction} className="form">
         <div className="input-cont">
-          <input
-            type="password"
-            className="inputs"
-            placeholder='passwrd123....'
-            {...register('password', {
-              required: 'Password is required',
-              minLength: {
-                value: 8,
-                message: 'password must be at least 8 characters',
-              },
-            })}
-            aria-invalid={errors.password ? "true" : "false"}
-            />
-          { errors.password && <p className='errorMsg'>{errors.password?.message}</p>}
+          <Inputs label="email" type="email" name="email" placeholder="example@gmail.com" />
+          {state.errors?.email && <p className="errorMsg">{state.errors.email}</p>}
         </div>
-          
+
+        <div className="input-cont">
+          <Inputs label="password" type="password" name="password" />
+          {state.errors?.password && <p className="errorMsg">{state.errors.password}</p>}
+        </div>
+        
         <p className="forgot-password">
-        <Link href='/auth/forgot-password' >
+          <Link href='/auth/forgot-password' >
           forgot password
-        </Link>
+          </Link>
         </p>
-        <Button value="Login"/>
+
+        <Button disabled={isPending} value={isPending ? 'Logging in...' : 'Login'} />
       </form>
-  )
+    </div>
+  );
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import "./button.css"
 
-export default function button(props) {
+export default function Button(props) {
   const {value,disabled} = props
   return (
     <>

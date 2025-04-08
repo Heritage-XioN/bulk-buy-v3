@@ -1,12 +1,11 @@
 "use client"
 import React, { useState } from 'react'
-
 import "./inputs.css";
 
 export default function Inputs(props) {
     const [input,setInput] = useState("");
     
-    const {name,type,placeholder,label,pattern} = props;
+    const {name, type, placeholder, label, pattern} = props;
     
   return (
     <>
