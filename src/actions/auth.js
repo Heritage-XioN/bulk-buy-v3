@@ -1,4 +1,5 @@
 "use server"
+import 'server-only'
 const axios = require('axios');
 import { getSession } from '@/lib/session';
 import { redirect } from "next/navigation";
@@ -33,12 +34,13 @@ async function handleSignup(data) {
         session.isLoggedIn = true;
         await session.save()
     
-        //redirects to appropriate page
-        redirect('/product-listing')
+        
         
        } catch (error) {
         console.error('signup error:', error);
        }
+       //redirects to appropriate page
+       redirect('/product-listing')
 }
 
 async function handlelogin(data) {
@@ -56,6 +58,7 @@ async function handlelogin(data) {
     //checks if theres an error in the request
     if (response.data.status === 'error') {
         return {message: response.data.message}
+        console.log({message: response.data.message})
     }
 
     //create session upon successful authentication
@@ -70,11 +73,14 @@ async function handlelogin(data) {
     await session.save()
 
     //redirects to appropriate page
-    redirect('/product-listing')
+   //
+   //  redirect('product_listing')
     
    } catch (error) {
     console.error('login error:', error);
    }
+   //redirects to appropriate page
+   redirect('/product_listing')
 }
 
 
