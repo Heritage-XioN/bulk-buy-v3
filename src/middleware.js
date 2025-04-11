@@ -8,14 +8,14 @@ import { getSession } from '@/lib/session'
 const protectedRoutes = ['/products','/dashboard']
 const publicRoutes = ['/login', '/signup', '/']
  
- export default async function middleware(req: NextRequest) {
+ export default async function middleware(req) {
   // 2. Check if the current route is protected or public
   const path = req.nextUrl.pathname
   const isProtectedRoute = protectedRoutes.includes(path)
   const isPublicRoute = publicRoutes.includes(path)
  
   // 3. Decrypt the session from the cookie
-  const session = await getCookie()
+  const session = await getSession()
  
   // 4. Redirect to /login if the user is not authenticated
   if (isProtectedRoute && !session?.id) {

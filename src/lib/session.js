@@ -4,7 +4,7 @@ import { cookies } from 'next/headers'
 
 
 const sessionOptions = {
-  password: , //run openssl rand -base64 32 to generate a random pasaword
+  password: process.env.RAND_KEY, //run openssl rand -base64 32 to generate a random pasaword
   cookieName: 'session',
   cookieOptions: {
     httpOnly: process.env.COOKIE_HTTP_ONLY,
@@ -18,19 +18,12 @@ export const defaultSession = {
   isLoggedin: false
 }
 
-export async function getSession( jwt, id, name, email, role, isLoggedin){
-  const session = await getIronSession(cookies(),sessionOptions);
-  
-  session.jwt = jwt;
-  session.id = id;
-  session.name = name;
-  session.email = name;
-  session.role = role;
-  session.isLoggedin = isLoggedin;
-  
-  if(!session.isLoggedin){
-    session.isLoggedin = defaultSession.isLoggedin
-  }
+export async function getSession(){
+  const session = await getIronSession(await cookies(),sessionOptions);
+
+  // if(!session.isLoggedin){
+  //   session.isLoggedin = defaultSession.isLoggedin
+  // }
   
   return session;
 }
