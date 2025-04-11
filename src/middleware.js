@@ -3,7 +3,7 @@ import { getSession } from '@/lib/session'
 
 
 // 1. Specify protected and public routes
-const protectedRoutes = ['/product-listing','/dashboard']
+const protectedRoutes = ['/product_listing','/dashboard']
 const publicRoutes = ['/login', '/signup', '/']
  
  export default async function middleware(req) {
@@ -24,9 +24,9 @@ const publicRoutes = ['/login', '/signup', '/']
   if (
     isPublicRoute &&
     session?.id &&
-    !req.nextUrl.pathname.startsWith('/product-listing')
+    !req.nextUrl.pathname.startsWith('/product_listing')
   ) {
-    return NextResponse.redirect(new URL('/products', req.nextUrl))
+    return NextResponse.redirect(new URL('/product_listing', req.nextUrl))
   }
  
   return NextResponse.next()
