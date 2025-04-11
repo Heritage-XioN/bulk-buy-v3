@@ -34,7 +34,7 @@ async function handleSignup(data) {
         await session.save()
     
         //redirects to appropriate page
-    
+        redirect('/product-listing')
         
        } catch (error) {
         console.error('signup error:', error);
@@ -70,7 +70,7 @@ async function handlelogin(data) {
     await session.save()
 
     //redirects to appropriate page
-
+    redirect('/product-listing')
     
    } catch (error) {
     console.error('login error:', error);
@@ -89,7 +89,6 @@ async function handleOtpSubmit(formData) {
     }
     const url = process.env.OTP_ENDPOINT;
     const otpData = JSON.stringify(concatOtpValues())
-   
 }
 
 

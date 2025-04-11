@@ -2,10 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getSession } from '@/lib/session'
 
 
-
-
 // 1. Specify protected and public routes
-const protectedRoutes = ['/products','/dashboard']
+const protectedRoutes = ['/product-listing','/dashboard']
 const publicRoutes = ['/login', '/signup', '/']
  
  export default async function middleware(req) {
@@ -26,7 +24,7 @@ const publicRoutes = ['/login', '/signup', '/']
   if (
     isPublicRoute &&
     session?.id &&
-    !req.nextUrl.pathname.startsWith('/products')
+    !req.nextUrl.pathname.startsWith('/product-listing')
   ) {
     return NextResponse.redirect(new URL('/products', req.nextUrl))
   }

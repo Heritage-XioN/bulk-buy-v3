@@ -8,6 +8,8 @@ import SubscriptionCard from '@/components/molecules/subscriptionCard/Subscripti
 const stock = ['Rice', 'Beans', 'Garri', 'Indomie', 'Milo', 'Milk', 'Rice', 'Beans', 'Garri', 'Indomie', 'Milo', 'Milk', 'Rice', 'Beans', 'Garri', 'Indomie', 'Milo', 'Milk'];
 
 const ProductListing = () => {
+  //import the verifySession function from the lib/dai.js
+  //the function is used as an extra layer of security to verify if th user authenticated
   return (
     <div className='product-listing'>
       <NavBar />

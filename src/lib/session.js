@@ -18,6 +18,7 @@ export const defaultSession = {
   isLoggedin: false
 }
 
+//handles creating the session
 export async function getSession(){
   const session = await getIronSession(await cookies(),sessionOptions);
 
@@ -28,6 +29,7 @@ export async function getSession(){
   return session;
 }
 
+//this should be used for logout
 export async function destroySession(){
   const session = await getSession();
   session.destroy()
